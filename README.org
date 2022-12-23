@@ -1,6 +1,6 @@
 * About
 We mask nonskin part of an image in this project. For example:
-[[file:test-image.ppm]]
+[[file:practice/test-image.png]]
 And our masked image becomes:
 [[file:practice/masked_image.png]]
 * How to run it?
