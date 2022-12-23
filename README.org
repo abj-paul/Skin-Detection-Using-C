@@ -2,6 +2,7 @@
 We mask nonskin part of an image in this project. For example:
 #+ATTR_ORG: :width 100
 #+ATTR_HTML: :width 100
+#+attr_latex: :width 100px
 [[file:practice/test-image.png]]
 And our masked image becomes:
 #+ATTR_ORG: :width 100
