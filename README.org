@@ -1,12 +1,21 @@
 * About
+It only takes ~0.91s~ to train the whole model! While it takes 10~50 min in python implementation.
+
 We mask nonskin part of an image in this project. For example:
-#+ATTR_ORG: :width 100
-#+ATTR_HTML: :width 100
-#+attr_latex: :width 100px
+
 [[file:practice/test-image.png]]
 And our masked image becomes:
-#+ATTR_ORG: :width 100
 [[file:practice/masked_image.png]]
+* Cross Fold Validation
+Note that, our Confusion Matrix has the following form.
+0 = NonSkin
+1 = Skin
+| Actual | Predicted | Case           |
+|--------+-----------+----------------|
+|      0 |         0 | False Negative |
+|      0 |         1 | False Positive |
+|      1 |         0 | True Negative  |
+|      1 |         1 | True Positive  |
 * How to run it?
 Download skin detection dataset from [[https://drive.google.com/file/d/1qAk1F-0Rwo1JZ7DpGB6ZkRrcJesQu-sm/view?usp=sharing][this drive link.]] And put the zip file in the cloned directory.
 #+begin_src bash
@@ -21,3 +30,5 @@ Download skin detection dataset from [[https://drive.google.com/file/d/1qAk1F-0R
   ./a.out
   xdg-open masked_test-image.ppm
 #+end_src
+* Jupyter Notebook
+There is also a jupyter notebook with its python implementation here. It takes a long time to run though. (~50min)
