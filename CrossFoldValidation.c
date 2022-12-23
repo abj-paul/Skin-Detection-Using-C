@@ -78,6 +78,10 @@ void calculateValidationMatrices(char* testData[], int n){
       else if(actual_value==1 && predicted_value==1) truePositiveCount++;
 
     }
+    free(mask_image->data);
+    free(mask_image);
+    free(original_image->data);
+    free(original_image);
   }
   accuracy = (truePositiveCount + falseNegativeCount) / (truePositiveCount + trueNegativeCount + falsePositiveCount + falseNegativeCount);
   printf("Accuracy=%lf\n",accuracy);

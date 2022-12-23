@@ -82,9 +82,10 @@ void learnSingleImage(char* imageName){
       nonskin_count[red][green][blue]++;
     } else skin_count[red][green][blue]++;
   }
+  free(mask_image->data);
   free(mask_image);
+  free(original_image->data);
   free(original_image);
-
 }
 
 void debug3DTensor(int tensor[256][256][256]){
@@ -127,6 +128,8 @@ void testModel(char* fileName){
   strcat(outputFileName,"masked_");
   strcat(outputFileName,fileName);
   writePPM(outputFileName, testImage);
+
+  free(testImage);
 }
 
 long double sumTensor(int tensor[256][256][256]){

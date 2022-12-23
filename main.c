@@ -20,6 +20,10 @@ int main(){
   //debug3DTensorD(learn_array);
 
   crossFoldValidation(10);
+  end = clock();
+  time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+  printf("%d Crossfold Validation time=%lf seconds.\n",5,time_spent);
+
   return 0;
 }
 
