@@ -1,8 +1,8 @@
 * About
 We mask nonskin part of an image in this project. For example:
-[[file:test-image.ppm][Original Image]]
+[[file:test-image.ppm]]
 And our masked image becomes:
-[[file:practice/masked_image.png][Masked Image]]
+[[file:practice/masked_image.png]]
 * How to run it?
 Download skin detection dataset from [[https://drive.google.com/file/d/1qAk1F-0Rwo1JZ7DpGB6ZkRrcJesQu-sm/view?usp=sharing][this drive link.]] And put the zip file in the cloned directory.
 #+begin_src bash
