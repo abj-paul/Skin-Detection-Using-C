@@ -1,0 +1,63 @@
+Total train & test time=4.186002 seconds.
+10-Cross Fold Validation, Run 0:--------------------------------------------------------------
+Accuracy=0.792179
+True Positive=1454449.00
+True Negative=150161.00
+False Positive=1826579.00
+False Negative=6080569.00
+10-Cross Fold Validation, Run 1:--------------------------------------------------------------
+Accuracy=0.834541
+True Positive=1549538.00
+True Negative=150965.00
+False Positive=1332382.00
+False Negative=5932141.00
+10-Cross Fold Validation, Run 2:--------------------------------------------------------------
+Accuracy=0.775677
+True Positive=1914023.00
+True Negative=484353.00
+False Positive=2192847.00
+False Negative=7343374.00
+10-Cross Fold Validation, Run 3:--------------------------------------------------------------
+Accuracy=0.871854
+True Positive=1878198.00
+True Negative=190778.00
+False Positive=1051254.00
+False Negative=6572078.00
+10-Cross Fold Validation, Run 4:--------------------------------------------------------------
+Accuracy=0.790808
+True Positive=1732600.00
+True Negative=160002.00
+False Positive=1756616.00
+False Negative=5512802.00
+10-Cross Fold Validation, Run 5:--------------------------------------------------------------
+Accuracy=0.822258
+True Positive=1757932.00
+True Negative=319115.00
+False Positive=1240234.00
+False Negative=5455814.00
+10-Cross Fold Validation, Run 6:--------------------------------------------------------------
+Accuracy=0.783997
+True Positive=1755786.00
+True Negative=227506.00
+False Positive=1985605.00
+False Negative=6276830.00
+10-Cross Fold Validation, Run 7:--------------------------------------------------------------
+Accuracy=0.767822
+True Positive=2347850.00
+True Negative=230408.00
+False Positive=2558011.00
+False Negative=6873556.00
+10-Cross Fold Validation, Run 8:--------------------------------------------------------------
+Accuracy=0.815930
+True Positive=2401839.00
+True Negative=189128.00
+False Positive=2012349.00
+False Negative=7356716.00
+10-Cross Fold Validation, Run 9:--------------------------------------------------------------
+Accuracy=0.767591
+True Positive=1859914.00
+True Negative=166353.00
+False Positive=2388484.00
+False Negative=6578120.00
+5 Crossfold Validation time=46.950739 seconds.
+

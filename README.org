@@ -1,12 +1,5 @@
-* About
-It only takes ~0.91s~ to train the whole model! While it takes 10~50 min in python implementation.
-
-We mask nonskin part of an image in this project. For example:
-
-[[file:practice/test-image.png]]
-And our masked image becomes:
-[[file:practice/masked_image.png]]
 * Cross Fold Validation
+You can find a [[https://colab.research.google.com/drive/1_jV6dhrsRA0BRcse00s6_0fTw_DAJN_F?usp=sharing][Cloud Instance where the entire process is hosted.]]
 Note that, our Confusion Matrix has the following form.
 0 = NonSkin
 1 = Skin
@@ -16,6 +9,14 @@ Note that, our Confusion Matrix has the following form.
 |      0 |         1 | False Positive |
 |      1 |         0 | True Negative  |
 |      1 |         1 | True Positive  |
+* About
+It only takes ~0.91s~ to train the whole model! While it takes 10~50 min in python implementation.
+
+We mask nonskin part of an image in this project. For example:
+
+[[file:practice/test-image.png]]
+And our masked image becomes:
+[[file:practice/masked_image.png]]
 * How to run it?
 Download skin detection dataset from [[https://drive.google.com/file/d/1qAk1F-0Rwo1JZ7DpGB6ZkRrcJesQu-sm/view?usp=sharing][this drive link.]] And put the zip file in the cloned directory.
 #+begin_src bash
