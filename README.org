@@ -2,6 +2,7 @@
 It only takes ~0.91s~ to train the whole model! While it takes 10~50 min in python implementation.
 
 We mask nonskin part of an image in this project. For example:
+
 [[file:practice/test-image.png]]
 And our masked image becomes:
 [[file:practice/masked_image.png]]
