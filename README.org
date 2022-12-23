@@ -1,0 +1,15 @@
+* About
+* How to run it?
+Download skin detection dataset from [[https://drive.google.com/file/d/1qAk1F-0Rwo1JZ7DpGB6ZkRrcJesQu-sm/view?usp=sharing][this drive link.]] And put the zip file in the cloned directory.
+#+begin_src bash
+  git clone https://github.com/abj-paul/Skin-Detection-Using-C
+  unzip ibtd.zip # unzipping the dataset
+  morgify -format ppm ibtd/*.jpg # Converting all jpg file to .ppm format
+  morgify -format ppm ibtd/Mask/*.bmp
+  rm ibtd/*.jpg
+  rm ibtd/Mask/*.bmp
+
+  gcc main.c image.c
+  ./a.out
+  xdg-open masked_test-image.ppm
+#+end_src
