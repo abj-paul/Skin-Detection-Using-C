@@ -20,6 +20,8 @@ void generateRandomDataset(char *array[], int n) {
 }
 
 void crossFoldValidation(int crossFold){
+  ConfusionMatrix* cnf[crossFold+1];
+  
   for(int i=0; i<crossFold; i++){
     generateRandomDataset(totalFileNameArray, 555);
 
@@ -29,12 +31,30 @@ void crossFoldValidation(int crossFold){
 
     trainModel(trainData, 500);
     printf("%d-Cross Fold Validation, Run %d:--------------------------------------------------------------\n",crossFold,i);
-    calculateValidationMatrices(testData, 55);
+    cnf[i] = calculateValidationMatrices(testData, 55);
   }
+
+  printf("Average Results:\n");
+  cnf[crossFold] = (ConfusionMatrix*)malloc(sizeof(ConfusionMatrix));
+  initializeConfusionMatrix(cnf[crossFold]);
+  for(int i=0; i<crossFold; i++){
+    cnf[crossFold]->accuracy += cnf[i]->accuracy;
+    cnf[crossFold]->truePositiveCount += cnf[i]->truePositiveCount;
+    cnf[crossFold]->trueNegativeCount += cnf[i]->trueNegativeCount;
+    cnf[crossFold]->falsePositiveCount += cnf[i]->falsePositiveCount;
+    cnf[crossFold]->falseNegativeCount += cnf[i]->falseNegativeCount;
+  }
+  printf("Average Accuracy=%lf\n",cnf[crossFold]->accuracy/10.0);
+  printf("Average True Positive=%lf\n",cnf[crossFold]->truePositiveCount/sumConfusionMatrix(cnf[crossFold]));
+  printf("Average True Negative=%lf\n",cnf[crossFold]->trueNegativeCount/sumConfusionMatrix(cnf[crossFold]));
+  printf("Average False Positive=%lf\n",cnf[crossFold]->falsePositiveCount/sumConfusionMatrix(cnf[crossFold]));
+  printf("Average False Negative=%lf\n",cnf[crossFold]->falseNegativeCount/sumConfusionMatrix(cnf[crossFold]));
+
+  for(int i=0; i<=crossFold; i++) free(cnf[i]);
 }
 
 
-void calculateValidationMatrices(char* testData[], int n){
+ConfusionMatrix* calculateValidationMatrices(char* testData[], int n){
   char mask_image_location[] = "ibtd/Mask/";
   char original_image_location[] = "ibtd/";
 
@@ -84,10 +104,34 @@ void calculateValidationMatrices(char* testData[], int n){
     free(original_image);
   }
   accuracy = (truePositiveCount + falseNegativeCount) / (truePositiveCount + trueNegativeCount + falsePositiveCount + falseNegativeCount);
-  printf("Accuracy=%lf\n",accuracy);
-  printf("True Positive=%.2lf\n",truePositiveCount);
-  printf("True Negative=%.2lf\n",trueNegativeCount);
-  printf("False Positive=%.2lf\n",falsePositiveCount);
-  printf("False Negative=%.2lf\n",falseNegativeCount);
+  
+  ConfusionMatrix* t = (ConfusionMatrix*)malloc(sizeof(ConfusionMatrix));
+  t->accuracy = accuracy;
+  t->truePositiveCount = truePositiveCount;
+  t->trueNegativeCount = trueNegativeCount;
+  t->falsePositiveCount = falsePositiveCount;
+  t->falseNegativeCount = falseNegativeCount;
+  printConfusionMatrix(t);
 
+  return t;
+}
+
+void printConfusionMatrix(ConfusionMatrix* x){
+  printf("Accuracy=%lf\n",x->accuracy);
+  printf("True Positive=%.2lf\n",x->truePositiveCount);
+  printf("True Negative=%.2lf\n",x->trueNegativeCount);
+  printf("False Positive=%.2lf\n",x->falsePositiveCount);
+  printf("False Negative=%.2lf\n",x->falseNegativeCount);
+}
+
+void initializeConfusionMatrix(ConfusionMatrix* t){
+  t->accuracy = 0;
+  t->truePositiveCount = 0;
+  t->trueNegativeCount = 0;
+  t->falsePositiveCount = 0;
+  t->falseNegativeCount = 0;
+}
+
+float sumConfusionMatrix(ConfusionMatrix* t){
+  return t->truePositiveCount + t->trueNegativeCount + t->falsePositiveCount + t->falseNegativeCount;
 }

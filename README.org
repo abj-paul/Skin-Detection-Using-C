@@ -1,3 +1,13 @@
+* About
+In this project, we train a naive bayes model with masked-unmasked images without using any library function. It only takes ~3.91s~ to train the whole model! While it takes 10~50 min in python implementation.
+Then we perform ~Cross Fold Validation~, again without using any library function and notice an average accuracy of 81%.
+Our [[https://drive.google.com/file/d/1qAk1F-0Rwo1JZ7DpGB6ZkRrcJesQu-sm/view?usp=sharing][Skin Detection dataset]] has two types of images. The original image is the whole image while the masked image masks the nonskin parts. Thus, a model can learn to differentiate between skin and nonskin.
+* Example
+We mask nonskin part of an image in this project. For example:
+[[file:practice/test-image.png]]
+And our masked image becomes:
+[[file:practice/masked_image.png]]
+
 * Cross Fold Validation
 You can find a [[https://colab.research.google.com/drive/1_jV6dhrsRA0BRcse00s6_0fTw_DAJN_F?usp=sharing][Cloud Instance where the entire process is hosted.]]
 Note that, our Confusion Matrix has the following form.
@@ -9,14 +19,6 @@ Note that, our Confusion Matrix has the following form.
 |      0 |         1 | False Positive |
 |      1 |         0 | True Negative  |
 |      1 |         1 | True Positive  |
-* About
-It only takes ~0.91s~ to train the whole model! While it takes 10~50 min in python implementation.
-
-We mask nonskin part of an image in this project. For example:
-
-[[file:practice/test-image.png]]
-And our masked image becomes:
-[[file:practice/masked_image.png]]
 * How to run it?
 Download skin detection dataset from [[https://drive.google.com/file/d/1qAk1F-0Rwo1JZ7DpGB6ZkRrcJesQu-sm/view?usp=sharing][this drive link.]] And put the zip file in the cloned directory.
 #+begin_src bash
@@ -27,9 +29,10 @@ Download skin detection dataset from [[https://drive.google.com/file/d/1qAk1F-0R
   rm ibtd/*.jpg
   rm ibtd/Mask/*.bmp
 
-  gcc main.c image.c
+  make
   ./a.out
   xdg-open masked_test-image.ppm
+  ls
 #+end_src
 * Jupyter Notebook
 There is also a jupyter notebook with its python implementation here. It takes a long time to run though. (~50min)
